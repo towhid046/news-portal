@@ -16,7 +16,7 @@ const displayNewsCategory = (categories) => {
         <a
         onclick="displayCardsBasedOnCategory('${category_id}')"
         id="${category_id}" 
-        class="text-gray-500 hover:text-blue-600 transition cursor-pointer single-category-btn" 
+        class="text-gray-500 hover:text-blue-600 btn btn-sm transition cursor-pointer single-category-btn" 
         >
         ${category_name}
         </a>
@@ -73,7 +73,8 @@ const displayCards = (news) => {
   // clear the cardsContainer
   cardsContainer.innerHTML = "";
   news.map((ne) => {
-    const { _id, thumbnail_url, title, details, author, total_view } = ne;
+    const { _id, thumbnail_url, title, details, author, total_view, rating } =
+      ne;
     const cardDiv = document.createElement("div");
     cardDiv.classList = `rounded-xl items-center bg-base-100 shadow-xl flex flex-col md:flex-row`;
 
@@ -115,16 +116,7 @@ const displayCards = (news) => {
             </div>
 
             <div class="rating">
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input
-                type="radio"
-                name="rating-1"
-                class="mask mask-star"
-                checked
-              />
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input type="radio" name="rating-1" class="mask mask-star" />
+            <em>Rating: <strong>${rating?.number}</strong></em>
             </div>
 
             <div class="">
@@ -155,7 +147,7 @@ const viewSingleCardDetailsHandelar = async (newsId) => {
   const res = await fetch(url);
   const data = await res.json();
 
-  const { _id, thumbnail_url, title, details, author, total_view } =
+  const { _id, thumbnail_url, title, details, author, total_view, rating } =
     data.data[0];
 
   const cardsContainer = document.getElementById("cards_container");
@@ -198,16 +190,7 @@ const viewSingleCardDetailsHandelar = async (newsId) => {
             </div>
 
             <div class="rating">
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input
-                type="radio"
-                name="rating-1"
-                class="mask mask-star"
-                checked
-              />
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input type="radio" name="rating-1" class="mask mask-star" />
-              <input type="radio" name="rating-1" class="mask mask-star" />
+            <em>Rating: <strong>${rating?.number}</strong></em>
             </div>
 
             <div class="">
@@ -221,6 +204,12 @@ const viewSingleCardDetailsHandelar = async (newsId) => {
         `;
   cardsContainer.appendChild(cardDiv);
   console.log(title);
+};
+
+// search news handelar:
+const searchNewsHandelar = () => {
+  const inputValue = document.getElementById("search_input_fild").value;
+  displayCardsBasedOnCategory(inputValue);
 };
 
 loadNavItem();

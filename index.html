@@ -90,10 +90,13 @@
       <section class="py-7 flex justify-center">
         <div class="join">
           <input
+            id="search_input_fild"
+            onkeyup="searchNewsHandelar()"
             class="input join-item lg:w-[500px] md:w-[320px]"
             placeholder="Type something"
           />
           <button
+            onclick="searchNewsHandelar()"
             class="btn join-item hover:bg-blue-500 bg-blue-500 text-white"
           >
             Search
@@ -114,7 +117,11 @@
         <div id="cards_container" class="py-8 gap-5 flex flex-col"></div>
       </section>
     </main>
-    <footer></footer>
+    <footer class="text-center py-4">
+      <p>
+        &copy;All Right reserve by <em class="text-gray-400">Towhid Morol</em>
+      </p>
+    </footer>
 
     <!-- custom js  -->
     <script src="/script/main.js"></script>
