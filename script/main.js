@@ -27,13 +27,19 @@ const displayNewsCategory = (categories) => {
 
 // fetch data baded on category:
 const displayCardsBasedOnCategory = async (id) => {
+  document.getElementById("spinner").classList.remove("hidden");
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
     const news = data.data;
+
+    if (news.length > 1) {
+      document.getElementById("spinner").classList.add("hidden");
+    }
     if (news.length <= 0) {
+      document.getElementById("spinner").classList.add("hidden");
       throw "/images/error-page.png";
     }
     displayCards(news);
@@ -85,7 +91,12 @@ const displayCards = (news) => {
             ${title}
           </h2>
           <p>
-           ${details.split("").slice(0, 320).join("")} <span onclick="viewSingleCardDetailsHandelar('${_id}')" class="text-gray-400 cursor-pointer">Read more...</span>
+           ${details
+             .split("")
+             .slice(0, 320)
+             .join(
+               ""
+             )} <span onclick="viewSingleCardDetailsHandelar('${_id}')" class="text-gray-400 cursor-pointer">Read more...</span>
           </p>
           <div class="card-actions flex justify-between gap-5 items-center">
             <div class="flex gap-2 items-center">
@@ -152,7 +163,7 @@ const viewSingleCardDetailsHandelar = async (newsId) => {
   cardsContainer.innerHTML = "";
 
   const cardDiv = document.createElement("div");
-  cardDiv.classList = `rounded-xl items-center bg-base-100 shadow-xl flex flex-col md:flex-row`;
+  cardDiv.classList = `rounded-xl md:items-start bg-base-100 shadow-xl flex flex-col md:flex-row`;
 
   cardDiv.innerHTML = `
         <figure class="m-4 w-11/12 md:min-w-[300px] md:max-w-[300px]  lg:min-w-[200px] lg:max-w-[200px]">
