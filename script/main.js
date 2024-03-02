@@ -40,14 +40,14 @@ const displayCards = (news) => {
   // clear the cardsContainer
   cardsContainer.innerHTML = "";
   news.map((ne) => {
-    const {thumbnail_url, } = ne
+    const {thumbnail_url, title, details} = ne;
     const cardDiv = document.createElement("div");
-    cardDiv.classList = `card bg-base-100 shadow-xl md:flex-row`;
+    cardDiv.classList = `rounded-xl items-center bg-base-100 shadow-xl flex flex-col md:flex-row`;
 
     cardDiv.innerHTML = `
-        <figure class="m-4 rounded-xl">
+        <figure class="m-4 w-11/12 md:min-w-[300px] md:max-w-[300px]  lg:min-w-[200px] lg:max-w-[200px]">
           <img
-            class = "w-full md:w-[600px] lg:w-[350px]"
+            class = "w-[100%] rounded-xl"
             src="${thumbnail_url}"
             alt="Thumbnail Image"
           />
@@ -55,14 +55,10 @@ const displayCards = (news) => {
 
         <div class="card-body">
           <h2 class="card-title">
-            The best fashinon Influencers to follow for sartorial
-            inspiration
+            ${title}
           </h2>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Dolorem ea sequi perspiciatis dicta corporis obcaecati ab, sit
-            laudantium earum nisi numquam expedita recusandae aliquam
-            laborum ratione cum pariatur qui inventore.
+           ${details.split('').slice(0,320).join('')}
           </p>
           <div class="card-actions flex justify-between gap-5 items-center">
             <div class="flex gap-2 items-center">
