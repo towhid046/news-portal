@@ -80,8 +80,10 @@
 
       <!-- navlist -->
       <section class="py-7">
-        <ul id="catetory_list_container" class="flex flex-wrap items-center gap-5 justify-between">
-        </ul>
+        <ul
+          id="catetory_list_container"
+          class="flex flex-wrap items-center gap-5 justify-between"
+        ></ul>
       </section>
 
       <!--search bar -->
@@ -91,7 +93,11 @@
             class="input join-item lg:w-[500px] md:w-[320px]"
             placeholder="Type something"
           />
-          <button class="btn join-item hover:bg-blue-500 bg-blue-500 text-white">Search</button>
+          <button
+            class="btn join-item hover:bg-blue-500 bg-blue-500 text-white"
+          >
+            Search
+          </button>
         </div>
       </section>
     </header>
@@ -99,62 +105,7 @@
     <main class="container mx-auto px-5">
       <section>
         <!-- cards -->
-        <div id="cards_container" class="py-8">
-          <div class="card bg-base-100 shadow-xl lg:flex-row">
-            <figure class="m-4 rounded-xl">
-              <img
-                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h2 class="card-title">
-                The best fashinon Influencers to follow for sartorial
-                inspiration
-              </h2>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Dolorem ea sequi perspiciatis dicta corporis obcaecati ab, sit
-                laudantium earum nisi numquam expedita recusandae aliquam
-                laborum ratione cum pariatur qui inventore.
-              </p>
-              <div class="card-actions flex justify-between gap-5 items-center">
-                <div class="flex gap-2 items-center">
-                  <img src="" alt="Image" />
-                  <div>
-                    <strong>Author Name</strong>
-                    <p>Jan 10, 2024</p>
-                  </div>
-                </div>
-
-                <div class="flex gap-2 items-center">
-                  <i class="fa-regular fa-eye"></i>
-                  <strong>1.5M</strong>
-                </div>
-
-                <div class="rating">
-                  <input type="radio" name="rating-1" class="mask mask-star" />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    class="mask mask-star"
-                    checked
-                  />
-                  <input type="radio" name="rating-1" class="mask mask-star" />
-                  <input type="radio" name="rating-1" class="mask mask-star" />
-                  <input type="radio" name="rating-1" class="mask mask-star" />
-                </div>
-
-                <div class="">
-                  <i
-                    class="text-blue-600 text-2xl cursor-pointer fa-solid fa-arrow-right-long"
-                  ></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="cards_container" class="py-8 gap-5 flex flex-col"></div>
       </section>
     </main>
     <footer></footer>
